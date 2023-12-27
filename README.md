@@ -24,7 +24,7 @@ Método: POST
 
 Descrição: Converte um arquivo PDF para MP3.
 
-Parâmetros:
+**Parâmetros:**
 
 file_path: Caminho do arquivo PDF a ser convertido. Retorno:
 
@@ -32,4 +32,7 @@ output_path: Caminho do arquivo MP3 gerado.
 
 **Próximos passos**
 
-Adicionar mais informações à documentação, como o formato do arquivo PDF ou os requisitos de hardware e software necessários. Implementar suporte para outros formatos de arquivo, como DOCX, PPT e XLSX. Aperfeiçoar a qualidade do áudio gerado. Implementar um banco de dados
+Adicionar mais informações à documentação, como o formato do arquivo PDF ou os requisitos de hardware e software necessários.
+Implementar suporte para outros formatos de arquivo, como DOCX, PPT e XLSX.
+Aperfeiçoar a qualidade do áudio gerado.
+Implementar um banco de dados
