@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 **Execução**
 
-python app.py
+python main.py
 
 **Rotas**
 
