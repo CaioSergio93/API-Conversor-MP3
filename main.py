@@ -5,7 +5,7 @@ import pyttsx3
 import conversor
 import leitor_texto
 
-from flask import Flask, abort, request, jsonify
+from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 
 
