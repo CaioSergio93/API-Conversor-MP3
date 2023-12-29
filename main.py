@@ -5,26 +5,35 @@ import pyttsx3
 import conversor
 import leitor_texto
 
-from flask import Flask, request, jsonify
+from flask import Flask, abort, request, jsonify
 from flask_restful import Resource, Api
-from flask_cors import CORS
+
 
 app = Flask(__name__)
-CORS(app)
 
 api = Api(app)
 
-class Conversao(Resource):
+@app.route("/teste", methods=["POST"])
+class ConversaoResource(Resource):
 
     def post(self):
-        data = request.get_json()
-        file_path = data.get("file_path")
+        dados = request.get_json()
+        caminho_do_arquivo = dados.get("caminho_do_arquivo")
 
-        converter = Conversao(file_path)
-        converter.convert_to_mp3()
+        if not caminho_do_arquivo:
+            return jsonify({"erro": "Caminho do arquivo ausente nos dados da solicitação"}), 400
 
-        return jsonify({"output_path": converter.output_path}), 200
+        try:
+            conversor = ConversaoResource(caminho_do_arquivo)
+            conversor.convert_to_mp3()
+            caminho_de_saída = conversor.caminho_de_saída
+            return jsonify({"caminho_de_saída": caminho_de_saída}), 200
+        except Exception as e:
+            return jsonify({"erro": str(e)}), 500
+        
+@app.route("/")
+def hello_world():
+    return "Hello, world!"
 
-api.add_resource(Conversao, "/convert")
-
-app.run()
+if __name__ == "__main__":
+    app.run(port=1515)    
